@@ -8,5 +8,8 @@
 	<bean id="qna_daoBean" class="dao.QnaDAO">
 		<property name="sqlSession" ref="sqlSessionBean"/>
 	</bean>
+	<bean id="qna_reple_daoBean" class="dao.QnaReDAO">
+		<property name="sqlSession" ref="sqlSessionBean"/>
+	</bean>
 	
 </beans>

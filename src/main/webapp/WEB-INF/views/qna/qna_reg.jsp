@@ -27,38 +27,33 @@
 	</head>
 	<body>
 		<form>
-			<table border="1" align="center">
-				<caption>문의하기</caption>
-				
-				<tr>
-					<th>작성자</th>
-					<td><input name="user_id" size="48"></td><!-- user_id 값을 가져와서 넣기 -->
-				</tr>
-				
-				<tr>
-					<th>문의제목</th>
-					<td><input name="qna_title" size="48"></td>
-				</tr>
-				
-				<tr>
-					<th>내용</th>
-					<td>
-						<textarea rows="10" cols="50" name="qna_contents" style="resize:none;" wrap="on"></textarea>
-					</td>
-				</tr>
+			<div>문의하기</div>
+			
+			<div>
+				<div>작성자</div>
+				<div><input name="user_id" size="48"></div><!-- user_id 값을 가져와서 넣기 -->
+			</div>
+			<div>
+				<div>문의제목</div>
+				<div><input name="qna_title" size="48"></div>
+			</div>
+			
+			<div>
+				<div>내용</div>
+				<div>
+					<textarea rows="10" cols="50" name="qna_contents" style="resize:none;" wrap="on"></textarea>
+				</div>
+			</div>
 				
 				<!-- <tr>
 					<th>비밀번호</th>
 					<td><input type="password" name="pwd" size="48"></td>
 				</tr> -->
 
-				<tr>
-					<td colspan="2" align="center">
-						<input type="button" value="작성완료" onClick="send(this.form);">
-						<input type="button" value="목록으로" onClick="location.href='qna_main.do'">
-					</td>
-				</tr>
-			</table>
+			<div>
+				<input type="button" value="작성완료" onClick="send(this.form);">		
+				<input type="button" value="목록으로" onClick="location.href='qna_main.do'">
+			</div>	
 		</form>
 	</body>
 </html>

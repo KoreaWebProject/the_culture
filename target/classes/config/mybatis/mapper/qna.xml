@@ -58,6 +58,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</trim>
 	</select>
+	
+	<!-- 선택한 Qna 게시글 상세내용 불러오기 -->
+	<select id="qna_detail" resultType="qna" parameterType="int">
+		select * from qna where qna_id = #{qna_id}
+	</select>
 </mapper>
 
 

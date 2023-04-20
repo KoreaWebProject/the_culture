@@ -38,6 +38,7 @@
 	
 	<beans:bean class="korea.it.culture.QnaController">
 		<beans:property name="qna_dao" ref="qna_daoBean"/>
+		<beans:property name="qna_re_dao" ref="qna_reple_daoBean"/>
 	</beans:bean>
 	
 </beans:beans>

@@ -29,9 +29,15 @@ public class QnaDAO {
 	}
 
 	// QNA 등록
-	public int insert_content(QnaVO vo) {
+	public int insertContent(QnaVO vo) {
 		//System.out.println("Qna insert");
 		int res = sqlSession.insert("q.qna_insert", vo);
 		return res;
+	}
+	
+	//선택한 QNA 내용 출력
+	public QnaVO selectOne(int qna_id) {
+		QnaVO detail = sqlSession.selectOne("q.qna_detail", qna_id);
+		return detail;
 	}
 }

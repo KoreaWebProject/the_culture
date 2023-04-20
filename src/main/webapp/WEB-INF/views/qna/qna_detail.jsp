@@ -14,7 +14,7 @@
 		</div>
 		<!-- 현재 접속자와 해당 게시글의 작성자가 동일하면 삭제할 수 있도록 -->
 		<div>
-			<input type="button" value="삭제하기" onClick="location.href='qna_del.do'">
+			<input type="button" value="삭제하기" onClick="location.href='qna_del.do?qna_id=${vo.qna_id}'">
 		</div>
 		<!-- 문의 수정 기능 추가? -->
 		
@@ -54,15 +54,15 @@
 		<div>
 			<input type="button" value="답글달기" onClick="location.href='qna_reple_reg.do?qna_id=${ vo.qna_id }&page=${param.page}&search=${ param.search }&search_text=${ param.search_text }'">
 		</div>
-		<div>
-			<input type="button" value="답글삭제" onClick="location.href='qna_reple_del.do'">
-		</div>
 		
 		<hr>
 		<h1>여긴 답글!</h1>
 	
 		<div>
 			<c:forEach var="list" items="${ list }">
+				<div>
+					<input type="button" value="답글삭제" onClick="location.href='qna_reple_del.do?qna_re_ref=${ list.qna_re_ref }'">
+				</div>
 				<div>
 					<c:if test="${ list.qna_re_remove_lev eq 0}">
 						<div>

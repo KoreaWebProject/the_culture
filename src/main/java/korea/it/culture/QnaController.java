@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import dao.QnaDAO;
 import dao.QnaReDAO;
@@ -168,6 +169,24 @@ public class QnaController {
 		 * request.getParameter("search");// 카테고리 String search_text =
 		 * request.getParameter("search_text");// 검색어
 		 */		
+		
+		return "redirect:qna_main.do";
+	}
+	
+	//Qna 삭제를 위한 업데이트
+	@RequestMapping("/qna_del.do")
+	public String qna_del() {
+		int qna_id=Integer.parseInt(request.getParameter("qna_id"));
+		qna_dao.update(qna_id);
+	
+		return "redirect:qna_main.do";
+	}
+
+	//QnaReple 삭제를 위한 업데이트
+	@RequestMapping("/qna_reple_del.do")
+	public String qna_reple_del() {
+		int qna_re_ref=Integer.parseInt(request.getParameter("qna_re_ref"));
+		qna_re_dao.update(qna_re_ref);
 		
 		return "redirect:qna_main.do";
 	}

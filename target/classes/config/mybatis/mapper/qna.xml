@@ -63,6 +63,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="qna_detail" resultType="qna" parameterType="int">
 		select * from qna where qna_id = #{qna_id}
 	</select>
+	
+	<!-- Qna 삭제처리를 위한 qna_remove_lev 1로 변경 -->
+	<update id="qna_del_up" parameterType="int">
+		update qna set qna_remove_lev = 1
+		where qna_id = #{qna_id}
+	</update>
 </mapper>
 
 

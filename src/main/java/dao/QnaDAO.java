@@ -40,4 +40,11 @@ public class QnaDAO {
 		QnaVO detail = sqlSession.selectOne("q.qna_detail", qna_id);
 		return detail;
 	}
+
+	public int update(int qna_id) {
+		int res = sqlSession.update("q.qna_del_up", qna_id);
+		System.out.println(res);
+		System.out.println(qna_id);
+		return res;
+	}
 }

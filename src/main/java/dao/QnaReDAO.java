@@ -21,8 +21,15 @@ public class QnaReDAO {
 		return list;
 	}
 	
+	//댓글 추가
 	public int insert(QnaReVO vo) {
 		int res = sqlSession.insert("qr.qna_reple_insert", vo);
+		return res;
+	}
+	
+	//댓글 삭제
+	public int update(int qna_re_ref) {
+		int res = sqlSession.update("qr.qna_reple_del_up", qna_re_ref);
 		return res;
 	}
 

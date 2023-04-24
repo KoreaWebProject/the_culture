@@ -3,14 +3,18 @@ package dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import vo.QnaReVO;
 
+@Repository
 public class QnaReDAO {
 	
 	SqlSession sqlSession;
 	
-	public void setSqlSession(SqlSession sqlSession) {
+	@Autowired
+	public QnaReDAO(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
 	

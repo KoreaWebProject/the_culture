@@ -12,7 +12,7 @@
 	</bean>
 	
 	<!-- 기본생성자가 없어서 오류발생/생성자 인젝션으로 접근해서 참조해야함 -->
-	<bean id="sqlSessionBean" class="org.mybatis.spring.SqlSessionTemplate">
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="factoryBean"/>
 	</bean>
 	

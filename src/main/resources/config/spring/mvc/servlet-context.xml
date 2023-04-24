@@ -36,9 +36,13 @@
 		<beans:property name="visit_dao" ref="visit_daoBean"/>
 	</beans:bean> -->
 	
-	<beans:bean class="korea.it.culture.QnaController">
+	<!-- <beans:bean class="korea.it.culture.QnaController">
 		<beans:property name="qna_dao" ref="qna_daoBean"/>
 		<beans:property name="qna_re_dao" ref="qna_reple_daoBean"/>
-	</beans:bean>
+	</beans:bean> -->
 	
+	<!-- Auto Detecting(자동생성) -->
+	<context:component-scan base-package="korea.it.*"/>
+	<context:component-scan base-package="dao,util,controller"/>
+	<!-- dao,util,controller -->
 </beans:beans>

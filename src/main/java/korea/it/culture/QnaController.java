@@ -5,20 +5,22 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import dao.QnaDAO;
 import dao.QnaReDAO;
+import dao.UserInfoDAO;
 import util.Common;
 import util.MyCommon;
 import util.Paging;
 import vo.QnaReVO;
 import vo.QnaVO;
+import vo.UserInfoVO;
 
 @Controller
 public class QnaController {
@@ -30,13 +32,19 @@ public class QnaController {
 
 	QnaDAO qna_dao;
 	QnaReDAO qna_re_dao;
+	UserInfoDAO userinfo_dao;
 
-	public void setQna_dao(QnaDAO qna_dao) {
+	@Autowired
+	public QnaController(QnaDAO qna_dao, QnaReDAO qna_re_dao, UserInfoDAO userinfo_dao) {
 		this.qna_dao = qna_dao;
-	}
-	public void setQna_re_dao(QnaReDAO qna_re_dao) {
 		this.qna_re_dao = qna_re_dao;
+		this.userinfo_dao = userinfo_dao;
+		System.out.println("here i am");
 	}
+	/*
+	 * public void setQna_dao(QnaDAO qna_dao) { this.qna_dao = qna_dao; } public
+	 * void setQna_re_dao(QnaReDAO qna_re_dao) { this.qna_re_dao = qna_re_dao; }
+	 */
 
 	// Qna 전체 등록 목록 조회
 	@RequestMapping(value = { "/", "/qna_main.do" })
@@ -188,6 +196,38 @@ public class QnaController {
 		int qna_re_ref=Integer.parseInt(request.getParameter("qna_re_ref"));
 		qna_re_dao.update(qna_re_ref);
 		
+		return "redirect:qna_main.do";
+	}
+	
+	//테스트용 로그인 로그아웃
+	@RequestMapping("/login_form.do")
+	public String login_form() {
+		System.out.println("여기는옴");
+		return MyCommon.Qna.VIEW_PATH + "login.jsp";
+	}
+	
+	@RequestMapping("/login.do")
+	public String login(HttpSession session) {
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+
+		UserInfoVO vo = userinfo_dao.selectOne(id);
+		if (vo == null) {
+			return "redirect:login_form.do";
+		} else {
+
+			session = request.getSession();
+			session.setAttribute("login", vo);
+
+			return "redirect:qna_main.do";
+		}
+	}
+
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session = request.getSession();
+		session.invalidate();
+
 		return "redirect:qna_main.do";
 	}
 }

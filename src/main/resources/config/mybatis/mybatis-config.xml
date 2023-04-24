@@ -17,6 +17,7 @@
 	<mappers>
 		<mapper resource="config/mybatis/mapper/qna.xml"/>
 		<mapper resource="config/mybatis/mapper/qnaReple.xml"/>
+		<mapper resource="config/mybatis/mapper/userinfo.xml"/>
 		
 		<!-- <mapper resource="config/mybatis/mapper/board_select.xml" />
 		<mapper resource="config/mybatis/mapper/board_insert.xml" />

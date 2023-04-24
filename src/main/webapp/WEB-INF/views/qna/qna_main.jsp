@@ -34,10 +34,19 @@
 	</head>
 	<body>
 		<h1>문의하기</h1>
-		<p>
-			<input type="hidden" name="user_id" value="${user_id}">
-			<input type="button" value="문의하기" onClick="location.href='qna_reg.do'">
-		</p>
+		<c:if test="${empty login.user_id}">
+			<a href="#" onclick="location.href='login_form.do'">로그인</a>
+		</c:if>
+		<c:if test="${not empty login.user_id}">
+			<span>${login.user_name}님</span>
+			<a href="#" onclick="location.href='logout.do'">로그아웃</a>
+		</c:if>
+		<div>
+			<c:if test="${not empty login.user_id and login.user_role_id == 0}">
+				<input type="hidden" name="user_id" value="${login.user_id}">
+				<input type="button" value="문의하기" onClick="location.href='qna_reg.do'">
+			</c:if>
+		</div>
 		<div>
 			<div>
 				<div>NO</div>
@@ -51,8 +60,8 @@
 				<div>${vo.qna_id}</div>
 				<div>
 					<c:if test="${ vo.qna_remove_lev ne 1 }">
-						<a href="qna_view.do?qna_id=${vo.qna_id}&page=${param.page}&search=${param.search}&search_text=${param.search_text}">${vo.qna_title}</a>
 						<!-- 링크를 누르면 qna_id를 가지고 페이지를 넘어가기 -->
+						<a href="qna_view.do?qna_id=${vo.qna_id}&page=${param.page}&search=${param.search}&search_text=${param.search_text}">${vo.qna_title}</a>
 					</c:if>
 					<c:if test="${ vo.qna_remove_lev eq 1 }">
 						<font color="gray">삭제된글입니다</font>

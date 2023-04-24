@@ -45,10 +45,17 @@ public class QnaDAO {
 		return detail;
 	}
 
+	//qna 삭제
 	public int update(int qna_id) {
 		int res = sqlSession.update("q.qna_del_up", qna_id);
 		//System.out.println(res);
 		//System.out.println(qna_id);
 		return res;
 	}
+	
+	//qna 완료
+		public int update_clear(int qna_id) {
+			int res = sqlSession.update("q.qna_update_clear", qna_id);
+			return res;
+		}
 }

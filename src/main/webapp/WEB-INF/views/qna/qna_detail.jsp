@@ -25,7 +25,10 @@
 				<input type="button" value="삭제하기" onClick="location.href='qna_del.do?qna_id=${vo.qna_id}'">
 			</c:if> --%>
 		</div>
-		<div>${ vo.qna_title }</div>
+		<div>
+			<div>제목</div>
+			<div>${ vo.qna_title }</div>
+		</div>
 		<div>
 			<div>아이디 : </div>
 			<div>${ vo.user_id }</div>
@@ -56,17 +59,18 @@
 		
 		<!-- 현 접속자가 관리자일 경우 답글 달기 기능 및 답글 삭제 활성화 -->
 		<div>
-			<c:if test="${login.user_role_id == 2}">
-				<hr>
-				<h1>여긴 답글!</h1>
+			<hr>
+			<h1>여긴 답글!</h1>
 			
-				<div>
+			<div>
+				<c:if test="${login.user_role_id == 2}">
 					<input type="button" value="답글달기" onClick="location.href='qna_reple_reg.do?qna_id=${ vo.qna_id }&page=${param.page}&search=${ param.search }&search_text=${ param.search_text }'">
-				</div>
-				
+					<input type="button" value="완료하기" onClick="location.href='qna_clear.do?qna_id=${vo.qna_id}'">
+				</c:if>
+			</div>
 				<div>
 					<c:forEach var="list" items="${ list }">
-						<c:if test="${ list.qna_re_remove_lev eq 0 }">
+						<c:if test="${ list.qna_re_remove_lev eq 0 and login.user_role_id == 2}">
 							<div>
 								<input type="button" value="답글삭제" onClick="location.href='qna_reple_del.do?qna_re_ref=${ list.qna_re_ref }'">
 							</div>
@@ -95,7 +99,6 @@
 						</div>
 					</c:forEach>
 				</div>
-			</c:if>
 		</div>
 	</body>
 </html>

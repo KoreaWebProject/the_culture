@@ -31,7 +31,11 @@
 			
 			<div>
 				<div>작성자</div>
-				<div><input name="user_id" size="48"></div><!-- user_id 값을 가져와서 넣기 -->
+				<!-- user_id 값을 가져와서 넣기 -->
+				<div>
+					<input type="hidden" name="user_id" value="${ login.user_name }">
+					${ login.user_name }
+				</div>
 			</div>
 			<div>
 				<div>문의제목</div>

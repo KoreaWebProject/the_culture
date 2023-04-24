@@ -39,7 +39,7 @@ public class QnaController {
 		this.qna_dao = qna_dao;
 		this.qna_re_dao = qna_re_dao;
 		this.userinfo_dao = userinfo_dao;
-		System.out.println("here i am");
+		//System.out.println("here i am");
 	}
 	/*
 	 * public void setQna_dao(QnaDAO qna_dao) { this.qna_dao = qna_dao; } public
@@ -199,10 +199,18 @@ public class QnaController {
 		return "redirect:qna_main.do";
 	}
 	
+	@RequestMapping("/qna_clear.do")
+	public String qna_clear() {
+		int qna_id=Integer.parseInt(request.getParameter("qna_id"));
+		qna_dao.update_clear(qna_id);
+		
+		return "redirect:qna_main.do";
+	}
+	
 	//테스트용 로그인 로그아웃
 	@RequestMapping("/login_form.do")
 	public String login_form() {
-		System.out.println("여기는옴");
+		//System.out.println("여기는옴");
 		return MyCommon.Qna.VIEW_PATH + "login.jsp";
 	}
 	

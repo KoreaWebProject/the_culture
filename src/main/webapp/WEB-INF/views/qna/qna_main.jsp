@@ -60,19 +60,21 @@
 				<div>${vo.qna_id}</div>
 				<div>
 					<c:if test="${ vo.qna_remove_lev ne 1 }">
-						<!-- 링크를 누르면 qna_id를 가지고 페이지를 넘어가기 -->
-						<a href="qna_view.do?qna_id=${vo.qna_id}&page=${param.page}&search=${param.search}&search_text=${param.search_text}">${vo.qna_title}</a>
+						<div>
+							<!-- 링크를 누르면 qna_id를 가지고 페이지를 넘어가기 -->
+							<a href="qna_view.do?qna_id=${vo.qna_id}&page=${param.page}&search=${param.search}&search_text=${param.search_text}">${vo.qna_title}</a>
+							<div>${vo.user_id}</div>
+							<div>
+								<c:if test="${ vo.qna_status eq 0 }">처리중</c:if>
+								<c:if test="${ vo.qna_status ne 0 }">답변완료</c:if>
+							</div>
+							<div>${vo.qna_regdate}</div>
+						</div>
 					</c:if>
 					<c:if test="${ vo.qna_remove_lev eq 1 }">
 						<font color="gray">삭제된글입니다</font>
 					</c:if>
 				</div>
-				<div>${vo.user_id}</div>
-				<div>
-					<c:if test="${ vo.qna_status eq 0 }">처리중</c:if>
-					<c:if test="${ vo.qna_status ne 0 }">답변완료</c:if>
-				</div>
-				<div>${vo.qna_regdate}</div>
 			</c:forEach>
 			
 			<!-- 페이지 선택 -->

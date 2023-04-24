@@ -69,6 +69,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update qna set qna_remove_lev = 1
 		where qna_id = #{qna_id}
 	</update>
+	
+	<!-- Qna 완료 처리를 위한 업데이트 -->
+	<update id="qna_update_clear" parameterType="int">
+		update qna set qna_status = 1
+		where qna_id = #{qna_id}
+	</update>
 </mapper>
 
 

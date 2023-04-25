@@ -10,11 +10,14 @@
 	
 	<typeAliases>
 		<!-- <typeAlias type="vo.BoardVo" alias="board"/> -->
-		<typeAlias type="vo.PlayVO" alias="play"/>
+		<typeAlias type="vo.QnaVO" alias="qna"/>
+		<typeAlias type="vo.QnaReVO" alias="qna_reples"/>
 	</typeAliases>
 	
 	<mappers>
-		<mapper resource="config/mybatis/mapper/play.xml"/>
+		<mapper resource="config/mybatis/mapper/qna.xml"/>
+		<mapper resource="config/mybatis/mapper/qnaReple.xml"/>
+		<mapper resource="config/mybatis/mapper/userinfo.xml"/>
 		
 		<!-- <mapper resource="config/mybatis/mapper/board_select.xml" />
 		<mapper resource="config/mybatis/mapper/board_insert.xml" />

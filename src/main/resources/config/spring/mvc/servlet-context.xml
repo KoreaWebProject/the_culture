@@ -29,15 +29,20 @@
 	</beans:bean> -->
 	
 	<!-- 컨트롤러가 수종생성 되고 있는 경우, @Autowired가 가능하도록 하는 설정 -->
-	<context:annotation-config/>
+	<!-- <context:annotation-config/> -->
 	
 	<!-- 컨트롤러 수동생성 및 dao를 setter 주입으로 받음  -->
 	<!-- <beans:bean class="com.korea.visit.VisitController">
 		<beans:property name="visit_dao" ref="visit_daoBean"/>
 	</beans:bean> -->
 	
-	<beans:bean class="korea.it.culture.HomeController">
-		<!-- <beans:property name="play_dao" ref="play_daoBean"/> -->
-	</beans:bean>
+	<!-- <beans:bean class="korea.it.culture.QnaController">
+		<beans:property name="qna_dao" ref="qna_daoBean"/>
+		<beans:property name="qna_re_dao" ref="qna_reple_daoBean"/>
+	</beans:bean> -->
 	
+	<!-- Auto Detecting(자동생성) -->
+	<context:component-scan base-package="korea.it.*"/>
+	<context:component-scan base-package="dao,util,controller"/>
+	<!-- dao,util,controller -->
 </beans:beans>

@@ -2,21 +2,8 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="p">
-	<!-- 전체 조회 -->
-	<select id="play_list" resultType="play">
-		select * from play order by  DESC
+<mapper namespace="u">
+	<select id="userinfo_one" parameterType="String" resultType="vo.UserInfoVO">
+		select * from userinfo where user_id = #{id}
 	</select>
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-

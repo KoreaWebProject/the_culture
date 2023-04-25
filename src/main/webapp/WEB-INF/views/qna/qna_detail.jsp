@@ -21,9 +21,6 @@
 			<c:if test="${(login.user_id == vo.user_id and login.user_role_id == 0) or login.user_role_id == 2}">
 				<input type="button" value="삭제하기" onClick="location.href='qna_del.do?qna_id=${vo.qna_id}'">
 			</c:if>
-			<%-- <c:if test="${login.user_role_id == 2}">
-				<input type="button" value="삭제하기" onClick="location.href='qna_del.do?qna_id=${vo.qna_id}'">
-			</c:if> --%>
 		</div>
 		<div>
 			<div>제목</div>

@@ -29,7 +29,7 @@
 	</beans:bean> -->
 	
 	<!-- 컨트롤러가 수종생성 되고 있는 경우, @Autowired가 가능하도록 하는 설정 -->
-	<context:annotation-config/>
+	<!-- <context:annotation-config/> -->
 	
 	<!-- 컨트롤러 수동생성 및 dao를 setter 주입으로 받음  -->
 	<!-- <beans:bean class="com.korea.visit.VisitController">
